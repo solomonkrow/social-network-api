@@ -12,12 +12,15 @@ const userSchema = new Schema(
         required: true,
         unique: true,
         validate: {
-            validator: ,
             message: 'Invalid Email'
         }
     },
-    thoughts: [],
-    friends: []
+    thoughts: [
+        // ids reference thought model
+    ],
+    friends: [
+        // ids reference user model
+    ]
     },
     {
         toJSON: {

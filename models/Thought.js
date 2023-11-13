@@ -9,10 +9,13 @@ const thoughtSchema = new Schema(
         maxLength: 280,
     },
     createdAt: {
-        type: Date
+        type: Date,
+        default: Date.now
     },
-    username: {type: String, required: true },
-    reactions: []
+    username: { type: String, required: true },
+    reactions: [
+        // nested documents w/ reactionSchema
+    ]
     },
     {
         toJSON: {
