@@ -1,5 +1,11 @@
 const router = require('express').Router();
-const {} = require('../../controllers/thoughtControl');
+const { 
+    grabThoughts,
+    grabAThought,
+    newThought
+ } = require('../../controllers/thoughtControl');
 
-router.route('/').get().post();
-router.route('/:thoughtId').get();
+router.route('/').get(grabThoughts).post(newThought);
+router.route('/:thoughtId').get(grabAThought);
+
+module.exports = router;
