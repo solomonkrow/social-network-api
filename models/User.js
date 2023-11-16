@@ -11,9 +11,9 @@ const userSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-        validate: {
+        /* validate: {
             message: 'Invalid Email'
-        }
+        } */
     },
     thoughts: [
         // ids reference thought model
@@ -39,9 +39,9 @@ const userSchema = new Schema(
 );
 
 userSchema.virtual('friendCount').get(function () {
-    return this.users.length;
+    return this.friends.length;
 });
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

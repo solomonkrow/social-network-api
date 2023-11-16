@@ -4,12 +4,20 @@ const {
     whichThinker, 
     newFreeThinker,
     changedThinker,
-    lostThinker
+    lostThinker,
+    newFriend,
+    byeFriend
 } = require('../../controllers/userControl');
 
 router.route('/').get(findThinkers).post(newFreeThinker);
-router.route('/:userId').get(whichThinker);
-router.route('/:userId').get(whichThinker).(changedThinker);
-router.route('/:userId').get(whichThinker).delete(lostThinker);
+
+router.route('/:userId')
+    .get(whichThinker)
+    .put(changedThinker)
+    .delete(lostThinker);
+    
+router.route('/:userId/friends/:friendId')
+    .post(newFriend)
+    .delete(byeFriend);
 
 module.exports = router;
